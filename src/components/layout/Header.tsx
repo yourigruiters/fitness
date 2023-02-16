@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { FaBars } from "react-icons/fa";
+import { FormattedMessage } from "react-intl";
 import ImageJaneDoe from "../../assets/avatars/avatar-jane-doe.jpg";
 import ImageLogo from "../../assets/logo/logo.png";
+import useLocale from "../../hooks/useLocale";
 
 interface IHeader {
   sidebarIsOpen: boolean;
@@ -9,6 +11,8 @@ interface IHeader {
 }
 
 const Header: FC<IHeader> = ({ sidebarIsOpen, toggleSidebar }) => {
+  const { setLocale } = useLocale();
+
   return (
     <header className="transition-all sticky z-40 top-0 left-0 flex justify-between items-center w-full h-16 p-4 shadow-lg text-gray-500 bg-white md:h-20">
       <div className="flex flex-row items-center gap-x-2">
@@ -20,12 +24,28 @@ const Header: FC<IHeader> = ({ sidebarIsOpen, toggleSidebar }) => {
           <img src={ImageLogo} alt="Logo - Fitness" className="w-full h-full" />
         </div>
       </div>
-      <div className="w-auto h-full rounded-md overflow-hidden">
-        <img
-          src={ImageJaneDoe}
-          alt="Avatar - Jane Doe"
-          className="w-full h-full"
-        />
+      <div className="flex flex-row items-center gap-x-4 w-auto h-full">
+        <div className="">
+          <select onChange={(e) => setLocale(e.currentTarget.value)}>
+            <option value="en">English</option>
+            <option value="nl">Dutch</option>
+          </select>
+        </div>
+        <div className="">
+          <p className="">
+            <FormattedMessage
+              id="navigation.components"
+              defaultMessage="Edit the files and save to reload"
+            />
+          </p>
+        </div>
+        <div className="w-auto h-full rounded-md overflow-hidden">
+          <img
+            src={ImageJaneDoe}
+            alt="Avatar - Jane Doe"
+            className="w-full h-full"
+          />
+        </div>
       </div>
     </header>
   );
