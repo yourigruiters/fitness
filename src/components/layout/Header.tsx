@@ -10,7 +10,7 @@ interface IHeader {
 
 const Header: FC<IHeader> = ({ sidebarIsOpen, toggleSidebar }) => {
   return (
-    <header className="sticky z-40 top-0 left-0 flex justify-between items-center w-full h-16 p-4 shadow-lg text-gray-500 bg-white">
+    <header className="transition-all sticky z-40 top-0 left-0 flex justify-between items-center w-full h-16 p-4 shadow-lg text-gray-500 bg-white md:h-20">
       <div className="flex flex-row items-center gap-x-2">
         <FaBars
           className="text-xl sm:hidden"
@@ -20,7 +20,7 @@ const Header: FC<IHeader> = ({ sidebarIsOpen, toggleSidebar }) => {
           <img src={ImageLogo} alt="Logo - Fitness" className="w-full h-full" />
         </div>
       </div>
-      <div className="w-8 h-8 rounded-md overflow-hidden">
+      <div className="w-auto h-full rounded-md overflow-hidden">
         <img
           src={ImageJaneDoe}
           alt="Avatar - Jane Doe"

@@ -31,17 +31,17 @@ const NavItem: FC<INavItem> = ({ title, link, icon }) => {
 
 const Nav = () => {
   return (
-    <nav className="w-full h-auto">
+    <nav className="w-full h-auto p-6">
       <ul className="flex flex-col gap-y-5 text-gray-400 text-sm">
         <NavItem
           title="Dashboard"
           link="/dashboard"
-          icon={<FaThLarge className="w-5 h-5" />}
+          icon={<FaThLarge className="w-4 h-4" />}
         />
         <NavItem
           title="Components"
           link="/components"
-          icon={<FaReact className="w-5 h-5" />}
+          icon={<FaReact className="w-4 h-4" />}
         />
       </ul>
     </nav>
