@@ -3,7 +3,9 @@ import { FaBars } from "react-icons/fa";
 import { FormattedMessage } from "react-intl";
 import ImageJaneDoe from "../../assets/avatars/avatar-jane-doe.jpg";
 import ImageLogo from "../../assets/logo/logo.png";
-import useLocale from "../../hooks/useLocale";
+import { useAppDispatch } from "../../redux/hooks";
+import { changeLocale } from "../../redux/slices/localeSlice";
+import { TLocale } from "../../types/locale";
 
 interface IHeader {
   sidebarIsOpen: boolean;
@@ -11,7 +13,7 @@ interface IHeader {
 }
 
 const Header: FC<IHeader> = ({ sidebarIsOpen, toggleSidebar }) => {
-  const { setLocale } = useLocale();
+  const dispatch = useAppDispatch();
 
   return (
     <header className="transition-all sticky z-40 top-0 left-0 flex justify-between items-center w-full h-16 p-4 shadow-lg text-gray-500 bg-white md:h-20">
@@ -26,7 +28,11 @@ const Header: FC<IHeader> = ({ sidebarIsOpen, toggleSidebar }) => {
       </div>
       <div className="flex flex-row items-center gap-x-4 w-auto h-full">
         <div className="">
-          <select onChange={(e) => setLocale(e.currentTarget.value)}>
+          <select
+            onChange={(e) =>
+              dispatch(changeLocale(e.currentTarget.value as TLocale))
+            }
+          >
             <option value="en">English</option>
             <option value="nl">Dutch</option>
           </select>

@@ -4,7 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import ErrorPage from "./pages/ErrorPage";
 import Components from "./pages/Components";
 import { IntlProvider } from "react-intl";
-import useLocale from "./hooks/useLocale";
+import { useAppSelector } from "./redux/hooks";
 
 const router = createBrowserRouter([
   {
@@ -25,12 +25,12 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const { locale, lang } = useLocale();
+  const locale = useAppSelector((state) => state.locale);
 
-  console.log("lang", lang);
+  console.log(locale);
 
   return (
-    <IntlProvider locale={locale || "en"} messages={lang}>
+    <IntlProvider locale={locale.locale || "en"} messages={locale.lang}>
       <RouterProvider router={router} />
     </IntlProvider>
   );
