@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { TLocale } from "../../types/locale";
 import English from "../../lang/en.json";
 import Dutch from "../../lang/nl.json";
+
+type TLocale = "en" | "nl";
 
 interface ILocaleSlice {
   locale: TLocale;

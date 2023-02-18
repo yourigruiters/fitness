@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { FC } from "react";
 import { FaThLarge, FaReact } from "react-icons/fa";
+import { useIntl } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 
 interface INavItem {
@@ -30,16 +31,21 @@ const NavItem: FC<INavItem> = ({ title, link, icon }) => {
 };
 
 const Nav = () => {
+  const intl = useIntl();
   return (
     <nav className="w-full h-auto p-6">
       <ul className="flex flex-col gap-y-5 text-gray-400 text-sm">
         <NavItem
-          title="Dashboard"
+          title={intl.formatMessage({
+            id: "navigation.dashboard",
+          })}
           link="/dashboard"
           icon={<FaThLarge className="w-4 h-4" />}
         />
         <NavItem
-          title="Components"
+          title={intl.formatMessage({
+            id: "navigation.components",
+          })}
           link="/components"
           icon={<FaReact className="w-4 h-4" />}
         />

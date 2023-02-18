@@ -27,10 +27,8 @@ const router = createBrowserRouter([
 const App = () => {
   const locale = useAppSelector((state) => state.locale);
 
-  console.log(locale);
-
   return (
-    <IntlProvider locale={locale.locale || "en"} messages={locale.lang}>
+    <IntlProvider locale={locale.locale} messages={locale.lang}>
       <RouterProvider router={router} />
     </IntlProvider>
   );
