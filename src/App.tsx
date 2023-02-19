@@ -1,10 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./pages/Root";
-import Dashboard from "./pages/Dashboard";
+import Root from "./pages/root/Root";
+import DashboardPage from "./pages/DashboardPage";
 import ErrorPage from "./pages/ErrorPage";
-import Components from "./pages/Components";
+import ComponentsPage from "./pages/ComponentsPage";
 import { IntlProvider } from "react-intl";
 import { useAppSelector } from "./redux/hooks";
+import AuthenticationRoot from "./pages/root/AuthenticationRoot";
+import SigninPage from "./pages/authentication/SigninPage";
+import SignupPage from "./pages/authentication/SignupPage";
+import LostPasswordPage from "./pages/authentication/LostPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -14,11 +18,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <DashboardPage />,
       },
       {
         path: "components",
-        element: <Components />,
+        element: <ComponentsPage />,
+      },
+    ],
+  },
+  {
+    path: "/authentication",
+    element: <AuthenticationRoot />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "signin",
+        element: <SigninPage />,
+      },
+      {
+        path: "signup",
+        element: <SignupPage />,
+      },
+      {
+        path: "lostpassword",
+        element: <LostPasswordPage />,
       },
     ],
   },
