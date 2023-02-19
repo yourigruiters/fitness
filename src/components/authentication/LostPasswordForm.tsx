@@ -5,6 +5,7 @@ import Alert from "../alert/Alert";
 import FormikInput from "../formik/FormikInput";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
+import FormHeader from "./components/FormHeader";
 
 const LostPasswordForm = () => {
   const [issueCode, setIssueCode] = useState<number>(0);
@@ -12,12 +13,10 @@ const LostPasswordForm = () => {
 
   return (
     <section className="flex flex-col gap-y-10">
-      <div className="flex flex-col justify-center gap-y-1 text-center">
-        <p className="font-bold text-lg">Lost Password</p>
-        <p className="text-gray-600 text-sm">
-          Retrieve Your Fitness Tracker Account
-        </p>
-      </div>
+      <FormHeader
+        title="Lost Password"
+        description="Retrieve Your Fitness Tracker Account"
+      />
       <Formik
         initialValues={{
           email: "",

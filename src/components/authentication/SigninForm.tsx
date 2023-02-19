@@ -5,6 +5,7 @@ import Alert from "../alert/Alert";
 import FormikInput from "../formik/FormikInput";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
+import FormHeader from "./components/FormHeader";
 
 const SigninForm = () => {
   const [issueCode, setIssueCode] = useState<number>(0);
@@ -12,10 +13,7 @@ const SigninForm = () => {
 
   return (
     <section className="flex flex-col gap-y-10">
-      <div className="flex flex-col justify-center gap-y-1 text-center">
-        <p className="font-bold text-lg">Sign In</p>
-        <p className="text-gray-600 text-sm">Your Fitness Tracker</p>
-      </div>
+      <FormHeader title="Sign In" description="Your Fitness Tracker" />
       <Formik
         initialValues={{
           email: "",
