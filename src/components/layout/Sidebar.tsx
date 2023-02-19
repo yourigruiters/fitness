@@ -13,7 +13,7 @@ const Sidebar: FC<ISidebar> = ({ isOpen, close }) => {
   return (
     <section
       className={classNames(
-        "fixed z-50 top-0 flex flex-col w-full h-full transition-all bg-default-900  sm:w-64",
+        "fixed z-50 top-0 flex flex-col w-full h-full transition-all bg-default-900 sm:w-64 dark:bg-black",
         {
           "-left-full sm:-left-0": !isOpen,
           "-left-0": isOpen,

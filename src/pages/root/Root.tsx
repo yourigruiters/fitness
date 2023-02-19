@@ -1,13 +1,24 @@
+import classNames from "classnames";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/layout/Header";
 import Sidebar from "../../components/layout/Sidebar";
+import { useAppSelector } from "../../redux/hooks";
+import { selectTheme } from "../../redux/slices/themeSlice";
 
 const Root = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const theme = useAppSelector(selectTheme);
 
   return (
-    <section className="flex flex-row w-full h-screen bg-default-900 overflow-hidden">
+    <section
+      className={classNames(
+        "flex flex-row w-full h-screen bg-default-900 overflow-hidden",
+        {
+          dark: theme === "dark",
+        }
+      )}
+    >
       <Sidebar isOpen={isSidebarOpen} close={setIsSidebarOpen} />
       <section className="relative w-full h-full sm:ml-64">
         <Header
