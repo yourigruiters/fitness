@@ -57,7 +57,11 @@ const Wobble: FC<IWobble> = ({
         {children}
       </div>
       {isPopoutOpen && (
-        <Popout popoutAlignment={popoutAlignment} noPadding={noPadding}>
+        <Popout
+          popoutAlignment={popoutAlignment}
+          noPadding={noPadding}
+          onClick={() => setIsPopoutOpen(false)}
+        >
           {popoutContent}
         </Popout>
       )}

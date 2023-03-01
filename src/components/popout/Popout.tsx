@@ -4,12 +4,14 @@ import { FC } from "react";
 interface IPopout {
   popoutAlignment?: "left" | "right";
   noPadding?: boolean;
+  onClick: () => void;
   children: JSX.Element;
 }
 
 const Popout: FC<IPopout> = ({
   popoutAlignment = "right",
   noPadding = false,
+  onClick,
   children,
 }) => {
   return (
@@ -20,6 +22,7 @@ const Popout: FC<IPopout> = ({
           "top-[68px]": noPadding,
         }
       )}
+      onClick={onClick}
     >
       {children}
     </div>

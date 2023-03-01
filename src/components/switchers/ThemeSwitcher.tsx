@@ -39,7 +39,7 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({}) => {
         customClassNames="!text-sun hover:text-sun"
       >
         <Splitter>
-          <FaSun className="w-full h-full" />
+          <FaSun className="w-5 h-5" />
           <p className="text-sm">
             {intl.formatMessage({
               id: "switcher.light",
@@ -53,7 +53,7 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({}) => {
         customClassNames="!text-moon hover:!text-moon"
       >
         <Splitter>
-          <FaMoon className="w-full h-full" />
+          <FaMoon className="w-5 h-5" />
           <p className="text-sm">
             {intl.formatMessage({
               id: "switcher.dark",
