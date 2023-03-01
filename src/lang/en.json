@@ -1,4 +1,36 @@
 {
   "navigation.dashboard": "Dashboard",
-  "navigation.components": "Components"
+  "navigation.components": "Components",
+
+  "authentication.signIn": "Sign In",
+  "authentication.signInDescription": "Your Fitness Tracker",
+  "authentication.signInButton": "Sign In",
+  "authentication.signUp": "Sign Up",
+  "authentication.signUpDescription": "Create Your Fitness Tracker Account",
+  "authentication.signUpButton": "Sign Up",
+  "authentication.lostPassword": "Lost Password",
+  "authentication.lostPasswordDescription": "Retrieve Your Fitness Tracker Account",
+  "authentication.lostPasswordButton": "Retrieve Password",
+  "authentication.lostYourPassword": "Lost your password?",
+  "authentication.notAMemberYet": "Not a member yet?",
+  "authentication.alreadyHaveAnAccount": "Already have an account?",
+  "authentication.logout": "Logout",
+
+  "form.email": "Email",
+  "form.password": "Password",
+  "form.passwordConfirmation": "Re-enter password",
+
+  "formerror.required": "This field is required.",
+  "formerror.emailInvalid": "Please enter a valid email.",
+  "formerror.passwordMin": "Please enter at least 8 characters.",
+  "formerror.passwordMax": "Please enter no more than 16 characters.",
+
+  "switcher.light": "Light",
+  "switcher.dark": "Dark",
+  "switcher.dutch": "Dutch",
+  "switcher.english": "English",
+
+  "account.profile": "My profile",
+  "account.workouts": "My workouts",
+  "account.settings": "My settings"
 }

@@ -7,9 +7,9 @@ import FlagNL from "../../assets/flags/FlagNL.png";
 import Splitter from "../wobble/components/Splitter";
 import { useIntl } from "react-intl";
 
-interface ILanguageSwitcher {}
+interface IAuthLanguageSwitcher {}
 
-const LanguageSwitcher: FC<ILanguageSwitcher> = ({}) => {
+const AuthLanguageSwitcher: FC<IAuthLanguageSwitcher> = ({}) => {
   const intl = useIntl();
   const locale = useAppSelector(selectLocale);
   const dispatch = useAppDispatch();
@@ -17,9 +17,9 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({}) => {
   const getLocaleFlag = () => {
     switch (locale) {
       case "en":
-        return <img src={FlagEN} alt="flag" />;
+        return <img src={FlagEN} alt="flag" className="h-5" />;
       case "nl":
-        return <img src={FlagNL} alt="flag" />;
+        return <img src={FlagNL} alt="flag" className="h-5" />;
     }
   };
 
@@ -55,10 +55,13 @@ const LanguageSwitcher: FC<ILanguageSwitcher> = ({}) => {
   );
 
   return (
-    <Wobble type="icon" popoutContent={popoutContent}>
-      {getLocaleFlag()}
+    <Wobble popoutContent={popoutContent} customClassNames="!h-10">
+      <Splitter>
+        {getLocaleFlag()}
+        <p>{locale === "en" ? "English" : "Dutch"}</p>
+      </Splitter>
     </Wobble>
   );
 };
 
-export default LanguageSwitcher;
+export default AuthLanguageSwitcher;

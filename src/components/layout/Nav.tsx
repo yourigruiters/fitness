@@ -32,6 +32,7 @@ const NavItem: FC<INavItem> = ({ title, link, icon }) => {
 
 const Nav = () => {
   const intl = useIntl();
+
   return (
     <nav className="w-full h-auto p-6">
       <ul className="flex flex-col gap-y-5 text-gray-400 text-sm">

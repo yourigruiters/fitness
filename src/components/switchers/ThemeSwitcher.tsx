@@ -4,10 +4,12 @@ import Wobble from "../wobble/Wobble";
 import Splitter from "../wobble/components/Splitter";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { changeTheme, selectTheme } from "../../redux/slices/themeSlice";
+import { useIntl } from "react-intl";
 
 interface IThemeSwitcher {}
 
 const ThemeSwitcher: FC<IThemeSwitcher> = ({}) => {
+  const intl = useIntl();
   const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
 
@@ -38,7 +40,11 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({}) => {
       >
         <Splitter>
           <FaSun className="w-full h-full" />
-          <p className="text-sm">Light</p>
+          <p className="text-sm">
+            {intl.formatMessage({
+              id: "switcher.light",
+            })}
+          </p>
         </Splitter>
       </Wobble>
       <Wobble
@@ -48,7 +54,11 @@ const ThemeSwitcher: FC<IThemeSwitcher> = ({}) => {
       >
         <Splitter>
           <FaMoon className="w-full h-full" />
-          <p className="text-sm">Dark</p>
+          <p className="text-sm">
+            {intl.formatMessage({
+              id: "switcher.dark",
+            })}
+          </p>
         </Splitter>
       </Wobble>
     </div>

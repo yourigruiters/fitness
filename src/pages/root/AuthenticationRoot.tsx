@@ -1,8 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import ImageLogo from "../../assets/logo/logo.png";
 import ImageBackground from "../../assets/background.jpg";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+import AuthLanguageSwitcher from "../../components/switchers/AuthLanguageSwitcher";
 
 const AuthenticationRoot = () => {
+  const navigate = useNavigate();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigate("/");
+    }
+  });
+
   return (
     <section className="flex flex-col items-center w-full h-screen bg-white md:flex-row md:items-stretch">
       <div
@@ -24,8 +35,11 @@ const AuthenticationRoot = () => {
           </h2>
         </div>
       </div>
-      <div className="flex flex-col max-w-[600px] w-full h-full p-10 md:order-1 md:justify-center md:p-16">
+      <div className="flex flex-col max-w-[600px] gap-y-10 w-full h-full p-10 md:order-1 md:justify-center md:p-16">
         <Outlet />
+        <div className="flex justify-center">
+          <AuthLanguageSwitcher />
+        </div>
       </div>
     </section>
   );

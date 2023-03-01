@@ -1,4 +1,36 @@
 {
   "navigation.dashboard": "Dashboard",
-  "navigation.components": "Componenten"
+  "navigation.components": "Componenten",
+
+  "authentication.signIn": "Inloggen",
+  "authentication.signInDescription": "Jouw Fitness Tracker",
+  "authentication.signInButton": "Sign In",
+  "authentication.signUp": "Registreren",
+  "authentication.signUpDescription": "Creeer jouw Fitness Tracker account",
+  "authentication.signUpButton": "Registreren",
+  "authentication.lostPassword": "Wachtwoord vergeten",
+  "authentication.lostPasswordDescription": "Ontvang jouw Fitness Tracker account",
+  "authentication.lostPasswordButton": "Ontvang wachtwoord",
+  "authentication.lostYourPassword": "Wachtwoord vergeten?",
+  "authentication.notAMemberYet": "Nog geen account?",
+  "authentication.alreadyHaveAnAccount": "Heb je al een account?",
+  "authentication.logout": "Uitloggen",
+
+  "form.email": "Email",
+  "form.password": "Wachtwoord",
+  "form.passwordConfirmation": "Wachtwoord opnieuw invoeren",
+
+  "formerror.required": "Dit veld is verplicht.",
+  "formerror.emailInvalid": "Vul a.u.b. een valide email in.",
+  "formerror.passwordMin": "Vul a.u.b. minstens 8 tekens in.",
+  "formerror.passwordMax": "Vul a.u.b. maximaal 16 tekens in.",
+
+  "switcher.light": "Licht",
+  "switcher.dark": "Donker",
+  "switcher.dutch": "Nederlands",
+  "switcher.english": "Engels",
+
+  "account.profile": "Mijn profiel",
+  "account.workouts": "Mijn workouts",
+  "account.settings": "Mijn instellingen"
 }

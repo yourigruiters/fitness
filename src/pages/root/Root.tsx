@@ -1,14 +1,29 @@
 import classNames from "classnames";
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../../components/layout/Header";
 import Sidebar from "../../components/layout/Sidebar";
+import { auth } from "../../firebase/firebase";
 import { useAppSelector } from "../../redux/hooks";
 import { selectTheme } from "../../redux/slices/themeSlice";
 
 const Root = () => {
+  const [user, setUser] = useState<any>(undefined);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const theme = useAppSelector(selectTheme);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        setUser(uid);
+      } else {
+        navigate("/authentication/signin");
+      }
+    });
+  }, []);
 
   return (
     <section

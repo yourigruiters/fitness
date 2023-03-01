@@ -6,48 +6,101 @@ import FormikInput from "../formik/FormikInput";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
 import FormHeader from "./components/FormHeader";
+import { authResetPassword } from "../../services/authentication";
+import { useIntl } from "react-intl";
 
 const LostPasswordForm = () => {
-  const [issueCode, setIssueCode] = useState<number>(0);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [issue, setIssue] = useState<string | undefined>(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const intl = useIntl();
 
   return (
     <section className="flex flex-col gap-y-10">
       <FormHeader
-        title="Lost Password"
-        description="Retrieve Your Fitness Tracker Account"
-      />
-      <Formik
-        initialValues={{
-          email: "",
-        }}
-        validationSchema={Yup.object({
-          email: Yup.string()
-            .email("Invalid email - needs a message")
-            .required("Required - needs a message"),
+        title={intl.formatMessage({
+          id: "authentication.lostPassword",
         })}
-        onSubmit={(values) => {
-          setIsLoading(true);
-        }}
-      >
-        <Form className="flex flex-col w-full h-auto gap-y-6">
-          {!!issueCode && <Alert />}
-          <FormikInput name="username" type="text" placeholder="Email" />
+        description={intl.formatMessage({
+          id: "authentication.lostPasswordDescription",
+        })}
+      />
+      {success ? (
+        <Alert issue="auth/password-reset" />
+      ) : (
+        <Formik
+          initialValues={{
+            email: "",
+          }}
+          validationSchema={Yup.object({
+            email: Yup.string()
+              .email(
+                intl.formatMessage({
+                  id: "formerror.emailInvalid",
+                })
+              )
+              .required(
+                intl.formatMessage({
+                  id: "formerror.required",
+                })
+              ),
+          })}
+          onSubmit={async (values) => {
+            setIsLoading(true);
 
-          <Button
-            title={!isLoading ? "Retrieve password" : "..."}
-            type="submit"
-            isFluid
-            disabled={isLoading}
-          />
-        </Form>
-      </Formik>
+            try {
+              const result = await authResetPassword(values.email);
+
+              if (typeof result === "string") {
+                setIssue(result);
+              }
+
+              if (result) {
+                setSuccess(true);
+              }
+            } catch (e) {
+              setIssue("Internal error");
+            }
+
+            setIsLoading(false);
+          }}
+        >
+          <Form className="flex flex-col w-full h-auto gap-y-6">
+            {issue && <Alert issue={issue} />}
+            <FormikInput
+              name="email"
+              type="text"
+              placeholder={intl.formatMessage({
+                id: "form.email",
+              })}
+            />
+
+            <Button
+              title={
+                !isLoading
+                  ? intl.formatMessage({
+                      id: "authentication.lostPasswordButton",
+                    })
+                  : "..."
+              }
+              type="submit"
+              isFluid
+              disabled={isLoading}
+            />
+          </Form>
+        </Formik>
+      )}
       <div className="text-center">
         <p className="text-gray-600 text-sm">
-          Already have an account?{" "}
+          {intl.formatMessage({
+            id: "authentication.alreadyHaveAnAccount",
+          })}{" "}
           <Link to="/authentication/signin">
             <span className="text-blue-700 hover:text-blue-800 cursor-pointer">
-              Sign in
+              {intl.formatMessage({
+                id: "authentication.signIn",
+              })}
             </span>
           </Link>
         </p>
