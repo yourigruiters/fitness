@@ -32,5 +32,16 @@
 
   "account.profile": "My profile",
   "account.workouts": "My workouts",
-  "account.settings": "My settings"
+  "account.settings": "My settings",
+
+  "alert.titlePassReset": "Password reset send",
+  "alert.descriptionPasswordReset": "A password reset link has been succesfully send to your email address.",
+  "alert.titleEmailInUse": "Email already in use",
+  "alert.descriptionEmailInUse": "This email address is already in use, please login to your account or use a different email address.",
+  "alert.titleWrongPassword": "Incorrect password",
+  "alert.descriptionWrongPassword": "The password you entered does not seem to match the password needed for this account.",
+  "alert.titleUserNotFound": "Email address not found",
+  "alert.descriptionUserNotFound": "The email address you entered does not seem to match to an account in this application.",
+  "alert.titleInternalError": "Internal error",
+  "alert.descriptionInternalError": "An internal error has appeared, please try again later."
 }

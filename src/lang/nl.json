@@ -32,5 +32,16 @@
 
   "account.profile": "Mijn profiel",
   "account.workouts": "Mijn workouts",
-  "account.settings": "Mijn instellingen"
+  "account.settings": "Mijn instellingen",
+
+  "alert.titlePassReset": "Wachtwoord reset verzonden",
+  "alert.descriptionPasswordReset": "Een mogelijkheid om je wachtwoord te resetten in verzonden naar je email.",
+  "alert.titleEmailInUse": "Email is al in gebruik",
+  "alert.descriptionEmailInUse": "Dit email adres is al in gebruik, log in of maak een nieuw account met een andere mail.",
+  "alert.titleWrongPassword": "Onjuist wachtwoord",
+  "alert.descriptionWrongPassword": "Het ingevoerde wachtwoord komt niet overeen met de ingevoerde email.",
+  "alert.titleUserNotFound": "Email niet gevonden",
+  "alert.descriptionUserNotFound": "Volgens ons systeem is er geen account gekoppeld aan dit email adres.",
+  "alert.titleInternalError": "Interne fout",
+  "alert.descriptionInternalError": "Er heeft een interne fout plaatsgevonden, probeer het later nog eens."
 }
