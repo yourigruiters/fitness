@@ -9,7 +9,6 @@ import { useAppSelector } from "../../redux/hooks";
 import { selectTheme } from "../../redux/slices/themeSlice";
 
 const Root = () => {
-  const [user, setUser] = useState<any>(undefined);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const theme = useAppSelector(selectTheme);
   const navigate = useNavigate();
@@ -17,8 +16,7 @@ const Root = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
-        setUser(uid);
+        navigate("/dashboard");
       } else {
         navigate("/authentication/signin");
       }
